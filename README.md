@@ -10,7 +10,7 @@
 
 更多详情请查看
 
-[石金融的简历](http://aierui.deercv.com/?preview=1)
+[石金融的简历](https://resume.shijinrong.cn)
 
 现在以**学**为主，**识**为辅；以**阅**为先，**言**之随。
 
