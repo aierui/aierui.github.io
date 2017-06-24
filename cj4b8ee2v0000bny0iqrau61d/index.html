@@ -2,16 +2,25 @@
 
 
 
-  
 
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next mist" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
 
 
 
@@ -131,7 +140,7 @@
 <meta property="og:image" content="http://7xpqdb.com1.z0.glb.clouddn.com/astonepshijinrong.jpg">
 <meta property="og:image" content="http://7xpqdb.com1.z0.glb.clouddn.com/astonepxiazai.jpg">
 <meta property="og:image" content="http://7xpqdb.com1.z0.glb.clouddn.com/astonepshijishendu.jpg">
-<meta property="og:updated_time" content="2017-06-24T11:56:33.000Z">
+<meta property="og:updated_time" content="2017-06-24T12:47:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何使用10个小时搭建出个人域名而又Geek的独立博客？">
 <meta name="twitter:description" content="摘要：我在这里写下长篇大论，只希望小白们能跟快速入门。坚持10个小时坚持10个小时坚持10个小时（重要的事情说三遍！！！）搭建出属于自己的个人独立博客，我将会通过 安装流程主线+优质文章 作为参考。由于我本人是一名学生（非计算机专业），喜欢尝试和不愿意人与亦云想要不一样的人生打小喜欢折腾便开始了搭建自己独立博客的道路，这路上可谓是路途凶险和艰难费了我九牛二虎之力解决，还是不够完美，但我希望他完美，">
@@ -146,7 +155,7 @@
     scheme: 'Mist',
     sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
-    motion: true,
+    motion: false,
     duoshuo: {
       userId: '0',
       author: '石小一'
@@ -570,6 +579,22 @@ $ hexo d #开始部署
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>想喝一杯咖啡多吃个汉堡也不是一件容易的事！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat-reward-image.jpg" alt="Aierui WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -602,8 +627,8 @@ $ hexo d #开始部署
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/cj4b7tnd900008qy0ad9tins1/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/cj4b8we6z0006eoy0t3ri3ssc/" rel="next" title="我想唠叨唠叨几句：">
+                <i class="fa fa-chevron-left"></i> 我想唠叨唠叨几句：
               </a>
             
           </div>
@@ -686,7 +711,7 @@ $ hexo d #开始部署
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -696,10 +721,10 @@ $ hexo d #开始部署
             
             
             <div class="site-state-item site-state-categories">
-              
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
@@ -707,10 +732,10 @@ $ hexo d #开始部署
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
@@ -858,16 +883,14 @@ $ hexo d #开始部署
   
 
 
+
+
+
+
+
+
   
-
-
-
   
-  
-
-
-
-
 
 
 
@@ -892,13 +915,10 @@ $ hexo d #开始部署
   <script type="text/javascript" src="https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
 
   
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-
-  
   <script type="text/javascript" src="/lib/three/three.min.js"></script>
 
   
-  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
 
 
   

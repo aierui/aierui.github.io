@@ -2,16 +2,25 @@
 
 
 
-  
 
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next mist" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
 
 
 
@@ -115,17 +124,17 @@
 
 
 
-<meta name="description" content="做自己喜欢的是一件很痛苦的事情不知从何时起，喜欢上做自己喜欢的；不知从何时起，坚持着做自己喜欢的；  “if we’re not careful turns into reality”以为也许不经意间梦想成真                                ——「  Lost Stars 」">
+<meta name="description" content="不知从何时起，喜欢上做自己喜欢的；不知从何时起，坚持着做自己喜欢的；  “if we’re not careful turns into reality”以为也许不经意间梦想成真                                ——「  Lost Stars 」">
 <meta name="keywords" content="做自己喜欢的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="做自己喜欢的是一件很痛苦的事情">
 <meta property="og:url" content="http://blog.shijinrong.cn/cj4b8we6h0000eoy04ek23yvt/index.html">
 <meta property="og:site_name" content="石小一">
-<meta property="og:description" content="做自己喜欢的是一件很痛苦的事情不知从何时起，喜欢上做自己喜欢的；不知从何时起，坚持着做自己喜欢的；  “if we’re not careful turns into reality”以为也许不经意间梦想成真                                ——「  Lost Stars 」">
-<meta property="og:updated_time" content="2017-06-24T12:09:16.000Z">
+<meta property="og:description" content="不知从何时起，喜欢上做自己喜欢的；不知从何时起，坚持着做自己喜欢的；  “if we’re not careful turns into reality”以为也许不经意间梦想成真                                ——「  Lost Stars 」">
+<meta property="og:updated_time" content="2017-06-24T12:45:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="做自己喜欢的是一件很痛苦的事情">
-<meta name="twitter:description" content="做自己喜欢的是一件很痛苦的事情不知从何时起，喜欢上做自己喜欢的；不知从何时起，坚持着做自己喜欢的；  “if we’re not careful turns into reality”以为也许不经意间梦想成真                                ——「  Lost Stars 」">
+<meta name="twitter:description" content="不知从何时起，喜欢上做自己喜欢的；不知从何时起，坚持着做自己喜欢的；  “if we’re not careful turns into reality”以为也许不经意间梦想成真                                ——「  Lost Stars 」">
 
 
 
@@ -136,7 +145,7 @@
     scheme: 'Mist',
     sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
-    motion: true,
+    motion: false,
     duoshuo: {
       userId: '0',
       author: '石小一'
@@ -415,7 +424,7 @@
       
 
       
-        <h2 id="做自己喜欢的是一件很痛苦的事情"><a href="#做自己喜欢的是一件很痛苦的事情" class="headerlink" title="做自己喜欢的是一件很痛苦的事情"></a>做自己喜欢的是一件很痛苦的事情</h2><p>不知从何时起，喜欢上做自己喜欢的；<br>不知从何时起，坚持着做自己喜欢的；</p>
+        <p>不知从何时起，喜欢上做自己喜欢的；<br>不知从何时起，坚持着做自己喜欢的；</p>
 <blockquote>
 <p>“if we’re not careful turns into reality”<br>以为也许不经意间梦想成真<br>                                ——「  Lost Stars 」</p>
 </blockquote>
@@ -448,6 +457,22 @@
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>想喝一杯咖啡多吃个汉堡也不是一件容易的事！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat-reward-image.jpg" alt="Aierui WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -531,17 +556,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpeg"
@@ -556,7 +572,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -566,10 +582,10 @@
             
             
             <div class="site-state-item site-state-categories">
-              
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
@@ -577,10 +593,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
@@ -632,22 +648,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#做自己喜欢的是一件很痛苦的事情"><span class="nav-number">1.</span> <span class="nav-text">做自己喜欢的是一件很痛苦的事情</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -728,16 +728,14 @@
   
 
 
+
+
+
+
+
+
   
-
-
-
   
-  
-
-
-
-
 
 
 
@@ -762,13 +760,10 @@
   <script type="text/javascript" src="https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
 
   
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-
-  
   <script type="text/javascript" src="/lib/three/three.min.js"></script>
 
   
-  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
 
 
   
