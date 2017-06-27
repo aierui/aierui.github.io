@@ -25,12 +25,13 @@
   <entry>
     <title><![CDATA[提升数据库性能]]></title>
     <url>%2Fa%2F17062408%2F</url>
-    <content type="text"><![CDATA[数据库在动态网站扮演者关键角色，所有的流入流出的数据都会和数据库进行交互。 优化 PHP 应用数据库的各种方法，包含不限于 Mysql 查询缓存（Query-Caching）进入 MySql 输入命令 show variables like ‘have_query_cache’; 查询缓存是 MySql 的一个重要性能特性，他缓存了 selete 查询及查询结果集，当同一个 selete 语句查询时， MySQL 直接从内存中直接取出结果。这样，可以提高执行速度，同时减轻数据库的压力。 如何开启（默认是开启的）呢？ 1234567打开 my.conf 文件query_cache_type = 1 // 0 为禁用query_cache_size = 128MB // 将会分配内存大小query_cache_limit = 1MB //定义能被缓存查询结果的最大体积 MyISAM 和 InnoDB 存储引擎 - MySql InnoDB 锁 表级锁 行级锁 外键 ❌ ✅ 事物 ❌ ✅ 全文检索 ✅ ❌ 数据压缩、自我复制 ✅ ✅ 查询缓存、数据加密 ✅ ✅ 集群 ❌ ✅ InnoDB 的几个重要配置参数 innodb_buffer_pool_size 该配置定义了 InnoDB 数据和载入内存的索引可以使用多少内存空间。对于一个 “全职” 的 MySql 服务器，推荐此配置值为服务器安装内存的 50%～80%。 innodb_buffer_pool_instances innodb_log_file_size MySql 性能监控工具 工欲善其事、必先利其器。 phpMyAdmin Percona 数据库和 Percona XtraDB 存储引擎Percona XtraDB 集群提供了高性能的集群环境，能轻松配置和管理多台数据库服务器，是的数据库之间能使用二进制日志来互相通信。集群环境能将负载分赛道不同的数据库服务器中，并提供灾备，以防止服务器死机。 官方文档： https://www.percona.com Redis官方文档： https://redis.io/ 中文文档： http://www.redis.cn/ 据说微博全球最大 redis 集群，所以这里面的文章，我将会入门开始。 Memcached官方文档： http://memcached.org/ Memcached 是一个高性能的分布式内存对象缓存系统，可以用于动态 Web 应用以减轻数据库负载。它通过在内存中缓存数据和对象来减少读取数据库的次数，从而提高动态、数据库驱动网站的速度。 Memcached 主要的使用场景有以下两个： 需要共享某些 Key-Value 形式的小数据时。（因为微博 Web 服务是分布式环境，所以使用全局变量方式等方式是不行的）。 缓存 MySQL 等后端存储的数据。快速进行数据响应，减轻后端存储的压力，同时，还可以为这些缓存数据指定过期时间。 Memcached 的实现决定了缓存的数据不是永久有效的，因此应用程序必须有针对 Memcached 失效时的向后端存取数据的重试方案。Memcached 不适合存放大文件，目前仅允许存放小于 1MB 的数据。]]></content>
+    <content type="text"><![CDATA[数据库在动态网站扮演者关键角色，所有的流入流出的数据都会和数据库进行交互。 优化 PHP 应用数据库的各种方法，包含不限于 Mysql 查询缓存（Query-Caching）进入 MySql 输入命令 show variables like ‘have_query_cache’; 查询缓存是 MySql 的一个重要性能特性，他缓存了 selete 查询及查询结果集，当同一个 selete 语句查询时， MySQL 直接从内存中直接取出结果。这样，可以提高执行速度，同时减轻数据库的压力。 如何开启（默认是开启的）呢？ 1234567打开 my.conf 文件query_cache_type = 1 // 0 为禁用query_cache_size = 128MB // 将会分配内存大小query_cache_limit = 1MB //定义能被缓存查询结果的最大体积 MyISAM 和 InnoDB 存储引擎 - MySql InnoDB 锁 表级锁 行级锁 外键 ❌ ✅ 事物 ❌ ✅ 全文检索 ✅ ❌ 数据压缩、自我复制 ✅ ✅ 查询缓存、数据加密 ✅ ✅ 集群 ❌ ✅ InnoDB 的几个重要配置参数 innodb_buffer_pool_size 该配置定义了 InnoDB 数据和载入内存的索引可以使用多少内存空间。对于一个 “全职” 的 MySql 服务器，推荐此配置值为服务器安装内存的 50%～80%。 innodb_buffer_pool_instances innodb_log_file_size MySql 性能监控工具 工欲善其事、必先利其器。 phpMyAdmin Navicat for MySql Seuquel Pro Percona 数据库和 Percona XtraDB 存储引擎Percona XtraDB 集群提供了高性能的集群环境，能轻松配置和管理多台数据库服务器，是的数据库之间能使用二进制日志来互相通信。集群环境能将负载分赛道不同的数据库服务器中，并提供灾备，以防止服务器死机。 官方文档： https://www.percona.com Redis官方文档： https://redis.io/ 中文文档： http://www.redis.cn/ 据说微博全球最大 redis 集群，所以这里面的文章，我将会入门开始。 Memcached官方文档： http://memcached.org/ Memcached 是一个高性能的分布式内存对象缓存系统，可以用于动态 Web 应用以减轻数据库负载。它通过在内存中缓存数据和对象来减少读取数据库的次数，从而提高动态、数据库驱动网站的速度。 Memcached 主要的使用场景有以下两个： 需要共享某些 Key-Value 形式的小数据时。（因为微博 Web 服务是分布式环境，所以使用全局变量方式等方式是不行的）。 缓存 MySQL 等后端存储的数据。快速进行数据响应，减轻后端存储的压力，同时，还可以为这些缓存数据指定过期时间。 Memcached 的实现决定了缓存的数据不是永久有效的，因此应用程序必须有针对 Memcached 失效时的向后端存取数据的重试方案。Memcached 不适合存放大文件，目前仅允许存放小于 1MB 的数据。]]></content>
       <categories>
         <category>数据库</category>
       </categories>
       <tags>
-        <tag>数据库 性能</tag>
+        <tag>性能</tag>
+        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
