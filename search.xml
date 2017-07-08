@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Zepto 源码分析]]></title>
     <url>%2Fa%2F17070716%2F</url>
-    <content type="text"><![CDATA[想 游刃有余 如鱼得水得 一清二楚 机制原理 1234567var Zepto = (function() &#123; // core&#125;)()// If `$` is not yet defined, point it to `Zepto`window.Zepto = Zeptowindow.$ === undefined &amp;&amp; (window.$ = Zepto) 这两天看了看 Zepto 源码本想着自己分析下 Zepto 的代码结构、内部工具函数、文档操作等，但是发现下面这位前辈分析的更加透彻，在这里分享下。但是前辈目前只是分享了 Zepto.js 未分享其他模块、如 Ajax 、 Event 、 Detect 、 Touch 、 Effects 、 Form 等 详情见 读 Zepto 源码系列]]></content>
+    <content type="text"><![CDATA[想 游刃有余 如鱼得水得 一清二楚 机制原理 1234567var Zepto = (function() &#123; // core&#125;)()// If `$` is not yet defined, point it to `Zepto`window.Zepto = Zeptowindow.$ === undefined &amp;&amp; (window.$ = Zepto) Zepto是一个轻量级的针对现代高级浏览器的JavaScript库， 它与jquery有着类似的api， 但主要针对移动端。 这两天看了看 Zepto 源码本想着自己分析下 Zepto 的代码结构、内部工具函数、文档操作等，但是发现下面这位前辈分析的更加透彻，在这里分享下。但是前辈目前只是分享了 Zepto.js 未分享其他模块、如 Ajax 、 Event 、 Detect 、 Touch 、 Effects 、 Form 等 详情见 读 Zepto 源码系列 👍]]></content>
       <categories>
         <category>源码分析</category>
       </categories>
