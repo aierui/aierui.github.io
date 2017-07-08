@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="小一 石小一 aierui 喜欢 Web PHP 开发 设计 摄影 分布式 架构" />
+  <meta name="keywords" content="zepto," />
 
 
 
@@ -93,15 +93,17 @@
 
 
 
-<meta name="description" content="做自己喜欢的事一件很痛苦的事情">
-<meta property="og:type" content="website">
-<meta property="og:title" content="石小一">
-<meta property="og:url" content="http://blog.shijinrong.cn/archives/2016/09/index.html">
+<meta name="description" content="想 游刃有余 如鱼得水得 一清二楚 机制原理">
+<meta name="keywords" content="zepto">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zepto 源码分析">
+<meta property="og:url" content="http://blog.shijinrong.cn/a/17070716/index.html">
 <meta property="og:site_name" content="石小一">
-<meta property="og:description" content="做自己喜欢的事一件很痛苦的事情">
+<meta property="og:description" content="想 游刃有余 如鱼得水得 一清二楚 机制原理">
+<meta property="og:updated_time" content="2017-07-08T02:41:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="石小一">
-<meta name="twitter:description" content="做自己喜欢的事一件很痛苦的事情">
+<meta name="twitter:title" content="Zepto 源码分析">
+<meta name="twitter:description" content="想 游刃有余 如鱼得水得 一清二楚 机制原理">
 
 
 
@@ -129,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.shijinrong.cn/archives/2016/09/"/>
+  <link rel="canonical" href="http://blog.shijinrong.cn/a/17070716/"/>
 
 
 
 
 
-  <title>归档 | 石小一</title>
+  <title>Zepto 源码分析 | 石小一</title>
   
 
 
@@ -160,7 +162,7 @@
     
   
 
-  <div class="container sidebar-position-right  page-archive  ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -288,66 +290,191 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 12 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.shijinrong.cn/a/17070716/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aierui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="石小一">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Zepto 源码分析</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-08T00:12:36+08:00">
+                2017-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/源码分析/" itemprop="url" rel="index">
+                    <span itemprop="name">源码分析</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <p>想 游刃有余 如鱼得水<br>得 一清二楚 机制原理<br><a id="more"></a></p>
+<p>这两天看了看 Zepto 源码本想着自己分析下 Zepto 的代码结构、内部工具函数、文档操作等，但是发现下面这位前辈分析的更加透彻，在这里分享下。</p>
+<p>详情见 <a href="https://github.com/yeyuqiudeng/reading-zepto" target="_blank" rel="external">读 Zepto 源码系列</a></p>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>想喝一杯咖啡多吃个汉堡也不是一件容易的事！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat-reward-image.jpg" alt="Aierui WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
+    <div>
+      
         
-            <a class="post-title-link" href="/a/16092522/" itemprop="url">
-              
-                <span itemprop="name">奋发图强，心中有梦</span>
-              
-            </a>
-        
-      </h3>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-25T22:18:33+08:00"
-              content="2016-09-25" >
-          09-25
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/zepto/" rel="tag"># zepto</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/a/17062510/" rel="next" title="我在微博专题系列">
+                <i class="fa fa-chevron-left"></i> 我在微博专题系列
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
-  </section>
-
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -592,7 +719,9 @@
   
 
   
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   

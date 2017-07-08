@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Zepto 源码分析]]></title>
+    <url>%2Fa%2F17070716%2F</url>
+    <content type="text"><![CDATA[想 游刃有余 如鱼得水得 一清二楚 机制原理 这两天看了看 Zepto 源码本想着自己分析下 Zepto 的代码结构、内部工具函数、文档操作等，但是发现下面这位前辈分析的更加透彻，在这里分享下。 详情见 读 Zepto 源码系列]]></content>
+      <categories>
+        <category>源码分析</category>
+      </categories>
+      <tags>
+        <tag>zepto</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[我在微博专题系列]]></title>
     <url>%2Fa%2F17062510%2F</url>
     <content type="text"><![CDATA[随时随地发现新鲜事!微博带你欣赏世界上每一个精彩瞬间,了解每一个幕后故事。分享你想表达的,让全世界都能听到你的心声! 我在微博专题系列 微博是我第一份实习工作，也是我喜欢做的一份工作。在微博时间里，学习了很多，也看到自己还有很多不懂不会，在这里我将记录我学习的内容以及在工作中常见问题的解决方案，涉及内容包含不限于PHP性能、分布式系统、服务高可用高性能、系统安全、常用工具使用技巧等 PHP 应用性能提升 PHP7 新特性 提升数据库性能]]></content>
