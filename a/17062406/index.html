@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://blog.shijinrong.cn/a/17062406/index.html">
 <meta property="og:site_name" content="石小一">
 <meta property="og:description" content="如何保证服务高可用、高性能 是今天PHP全球开发者大全的主题，目前在业界已经有成熟的解决方案。在服务日常稳定，无太大波动时，很难考验服务的高可用，只有经历过爆发式的流量，暴露出问题才发现自己的“高可用”其实并不是那么回事。用户才是检验服务高可用的唯一依据。">
-<meta property="og:updated_time" content="2017-06-25T08:18:07.000Z">
+<meta property="og:updated_time" content="2017-07-08T17:15:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP 应用性能提升">
 <meta name="twitter:description" content="如何保证服务高可用、高性能 是今天PHP全球开发者大全的主题，目前在业界已经有成熟的解决方案。在服务日常稳定，无太大波动时，很难考验服务的高可用，只有经历过爆发式的流量，暴露出问题才发现自己的“高可用”其实并不是那么回事。用户才是检验服务高可用的唯一依据。">
@@ -410,8 +410,8 @@
 </ul>
 <h2 id="nginx-or-apache">Nginx 与 Apache</h2>
 
-<h4 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h4><p>Apache 处理请求的模式有三种：prefork 模式（线程创建进程）、worker模式（进程创建线程）、事件驱动模式（与worker模式相似，但会为连接创建专用线程，活动请求使用另外创建的线程）。Apache 在处理每一个请求都会由一个线程或者一个进程处理，，所以 Apache 在处理请求时，开销很大。当它在高并发场景下时，其性能底下的问题便会突显出来。</p>
-<h4 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h4><p>Nginx 提供异步、事件驱动、非阻塞请求处理，由于请求异步处理，Nginx 不必等待每个请求完成，避免锁住资源。Nginx 没有内置任何解释型语言，这也许是好事，因为如此一来Nginx便可以专注处理请求的接受与相应，而具体解析脚本语言的进程则在 Nginx 之外，通常我们认为 Nginx 要快于 Apache ，但是在一些场景下，例如静态资源下，Apache 也有自己的优势。</p>
+<h3 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h3><p>Apache 处理请求的模式有三种：prefork 模式（线程创建进程）、worker模式（进程创建线程）、事件驱动模式（与worker模式相似，但会为连接创建专用线程，活动请求使用另外创建的线程）。Apache 在处理每一个请求都会由一个线程或者一个进程处理，，所以 Apache 在处理请求时，开销很大。当它在高并发场景下时，其性能底下的问题便会突显出来。</p>
+<h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><p>Nginx 提供异步、事件驱动、非阻塞请求处理，由于请求异步处理，Nginx 不必等待每个请求完成，避免锁住资源。Nginx 没有内置任何解释型语言，这也许是好事，因为如此一来Nginx便可以专注处理请求的接受与相应，而具体解析脚本语言的进程则在 Nginx 之外，通常我们认为 Nginx 要快于 Apache ，但是在一些场景下，例如静态资源下，Apache 也有自己的优势。</p>
 <p>因此，在构建高性能服务器时，APache 并不是问题所在，PHP 才是真正的瓶颈。</p>
 <h2 id="http">HTTP 服务器性能优化</h2>
 
@@ -473,10 +473,12 @@
 <p>大多数的平台通过内置支持货通过插件和幂快实现全页缓存。在这种情况下，插件或模块为每个请求处理页面的动态区域。</p>
 <h2 id="Varnish">Varnish</h2>
 
-<h5 id="Varnish-Web应用程序加速器"><a href="#Varnish-Web应用程序加速器" class="headerlink" title="Varnish-Web应用程序加速器"></a>Varnish-Web应用程序加速器</h5><p>官方文档 <a href="http://www.varnish-cache.org/docs/index.html" target="_blank" rel="external">Varnish Documentation</a></p>
+<p><strong> Varnish-Web应用程序加速器 </strong></p>
+<p>官方文档 <a href="http://www.varnish-cache.org/docs/index.html" target="_blank" rel="external">Varnish Documentation</a></p>
 <h2 id="LB">负载均衡</h2>
 
-<h4 id="HAProxy"><a href="#HAProxy" class="headerlink" title="HAProxy"></a>HAProxy</h4><p>官方文档 <a href="http://www.haproxy.org/" target="_blank" rel="external">http://www.haproxy.org/</a></p>
+<p><strong> HAProxy </strong></p>
+<p>官方文档 <a href="http://www.haproxy.org/" target="_blank" rel="external">http://www.haproxy.org/</a></p>
 
       
     </div>
@@ -537,8 +539,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/a/16092522/" rel="next" title="奋发图强，心中有梦">
-                <i class="fa fa-chevron-left"></i> 奋发图强，心中有梦
+              <a href="/a/17062316/" rel="next" title="渣浪-渣">
+                <i class="fa fa-chevron-left"></i> 渣浪-渣
               </a>
             
           </div>
@@ -617,7 +619,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -703,7 +705,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx-or-apache"><span class="nav-number">1.</span> <span class="nav-text">Nginx 与 Apache</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Apache"><span class="nav-number">1.0.1.</span> <span class="nav-text">Apache</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nginx"><span class="nav-number">1.0.2.</span> <span class="nav-text">Nginx</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http"><span class="nav-number">2.</span> <span class="nav-text">HTTP 服务器性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-Server-优化"><span class="nav-number">2.1.</span> <span class="nav-text">HTTP Server 优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存静态文件"><span class="nav-number">2.1.1.</span> <span class="nav-text">缓存静态文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-持久链接"><span class="nav-number">2.2.</span> <span class="nav-text">HTTP 持久链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP独立部署服务"><span class="nav-number">2.3.</span> <span class="nav-text">PHP独立部署服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cdn"><span class="nav-number">3.</span> <span class="nav-text">内容分发网络 （CDN）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CDN网络特征如下"><span class="nav-number">3.1.</span> <span class="nav-text">CDN网络特征如下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#j-and-c"><span class="nav-number">4.</span> <span class="nav-text">JavaScript/CSS/Img 优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cache"><span class="nav-number">5.</span> <span class="nav-text">全页缓存技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Varnish"><span class="nav-number">6.</span> <span class="nav-text">Varnish</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Varnish-Web应用程序加速器"><span class="nav-number">6.0.0.1.</span> <span class="nav-text">Varnish-Web应用程序加速器</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LB"><span class="nav-number">7.</span> <span class="nav-text">负载均衡</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HAProxy"><span class="nav-number">7.0.1.</span> <span class="nav-text">HAProxy</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx-or-apache"><span class="nav-number">1.</span> <span class="nav-text">Nginx 与 Apache</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache"><span class="nav-number">1.1.</span> <span class="nav-text">Apache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx"><span class="nav-number">1.2.</span> <span class="nav-text">Nginx</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http"><span class="nav-number">2.</span> <span class="nav-text">HTTP 服务器性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-Server-优化"><span class="nav-number">2.1.</span> <span class="nav-text">HTTP Server 优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存静态文件"><span class="nav-number">2.1.1.</span> <span class="nav-text">缓存静态文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-持久链接"><span class="nav-number">2.2.</span> <span class="nav-text">HTTP 持久链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP独立部署服务"><span class="nav-number">2.3.</span> <span class="nav-text">PHP独立部署服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cdn"><span class="nav-number">3.</span> <span class="nav-text">内容分发网络 （CDN）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CDN网络特征如下"><span class="nav-number">3.1.</span> <span class="nav-text">CDN网络特征如下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#j-and-c"><span class="nav-number">4.</span> <span class="nav-text">JavaScript/CSS/Img 优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cache"><span class="nav-number">5.</span> <span class="nav-text">全页缓存技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Varnish"><span class="nav-number">6.</span> <span class="nav-text">Varnish</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LB"><span class="nav-number">7.</span> <span class="nav-text">负载均衡</span></a></li></ol></div>
             
 
           </div>
