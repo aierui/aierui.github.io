@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://static.shijinrong.cn/blog/mysql_query_cache.png">
 <meta property="og:image" content="https://static.shijinrong.cn/blog/E0252133-6E53-4E74-B80B-69CB0070C971.png">
 <meta property="og:image" content="https://static.shijinrong.cn/blog/tx_isolation.png">
-<meta property="og:updated_time" content="2017-07-09T01:12:06.000Z">
+<meta property="og:updated_time" content="2017-07-21T14:14:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="提升数据库性能">
 <meta name="twitter:description" content="数据库在动态网站扮演者关键角色，所有的流入流出的数据都会和数据库进行交互。">
@@ -538,7 +538,7 @@
 <li><p>选择合适的基准测试工具</p>
 </li>
 </ul>
-<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><div class="note danger"><p>联合索引 KEY <code>t_u_s</code> (<code>ctime</code>,<code>uid</code>,<code>source</code>) 与  KEY <code>idx_uid_ctime_source</code> (<code>uid</code>,<code>ctime</code>,<code>source</code>) 之前的区别大吗？（该表用来记录用户访问日志，uid是10位整型，ctime TIMESTAMP）</p>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><div class="note danger"><p>联合索引 KEY <code>t_u_s</code> (<code>ctime</code>,<code>uid</code>,<code>source</code>) 与  KEY <code>idx_uid_ctime_source</code> (<code>uid</code>,<code>ctime</code>,<code>source</code>) 之间的区别大吗？（该表用来记录用户访问日志，uid是10位整型，ctime TIMESTAMP）</p>
 </div>
 <div class="note success"><p>答案是，用户量不大访问量不高，是不会有太大的问题，但是当 QPS 上来了 就 gg 了。这是为什么呢？看索引区别</p>
 <p>前者先是 ctime 字段（ TIMESTAMP ）数据会按照时间先后顺序排列成 B+ 树 （只可以精确到秒）但是每秒有上千的数据呢？它的排列还起作用吗？不起作用，没有大小之分了。</p>
