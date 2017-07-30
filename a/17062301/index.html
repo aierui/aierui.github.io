@@ -81,7 +81,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="我在微博," />
+  <meta name="keywords" content="Redis,数据库,NoSQL," />
 
 
 
@@ -97,19 +97,17 @@
 
 
 
-<meta name="description" content="随时随地发现新鲜事!微博带你欣赏世界上每一个精彩瞬间,了解每一个幕后故事。分享你想表达的,让全世界都能听到你的心声!">
-<meta name="keywords" content="我在微博">
+<meta name="description" content="当你需要以接近实时的速度访问快㞘变动的数据流时，Redis 这个的键值数据库就是你的最佳选择。Redis 是一个可以用来解决问题的工具，它既其他数据库不具备的数据结构，又拥有内存存储（这让 Redis 速度非常快）、远程（这使得可以与多个客户端和服务器进行连接）、持久化（这使得服务器重启之后任然可以保持重启之前的数据） 和可扩展性（主从复制和分片）等多个特性。">
+<meta name="keywords" content="Redis,数据库,NoSQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我在微博专题系列">
-<meta property="og:url" content="http://blog.shijinrong.cn/a/17062510/index.html">
+<meta property="og:title" content="Redis-Basics">
+<meta property="og:url" content="http://blog.shijinrong.cn/a/17062301/index.html">
 <meta property="og:site_name" content="石小一">
-<meta property="og:description" content="随时随地发现新鲜事!微博带你欣赏世界上每一个精彩瞬间,了解每一个幕后故事。分享你想表达的,让全世界都能听到你的心声!">
-<meta property="og:image" content="https://static.shijinrong.cn/blog/sina_weibo_floor.jpeg">
-<meta property="og:updated_time" content="2017-07-08T15:00:00.000Z">
+<meta property="og:description" content="当你需要以接近实时的速度访问快㞘变动的数据流时，Redis 这个的键值数据库就是你的最佳选择。Redis 是一个可以用来解决问题的工具，它既其他数据库不具备的数据结构，又拥有内存存储（这让 Redis 速度非常快）、远程（这使得可以与多个客户端和服务器进行连接）、持久化（这使得服务器重启之后任然可以保持重启之前的数据） 和可扩展性（主从复制和分片）等多个特性。">
+<meta property="og:updated_time" content="2017-07-30T06:20:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我在微博专题系列">
-<meta name="twitter:description" content="随时随地发现新鲜事!微博带你欣赏世界上每一个精彩瞬间,了解每一个幕后故事。分享你想表达的,让全世界都能听到你的心声!">
-<meta name="twitter:image" content="https://static.shijinrong.cn/blog/sina_weibo_floor.jpeg">
+<meta name="twitter:title" content="Redis-Basics">
+<meta name="twitter:description" content="当你需要以接近实时的速度访问快㞘变动的数据流时，Redis 这个的键值数据库就是你的最佳选择。Redis 是一个可以用来解决问题的工具，它既其他数据库不具备的数据结构，又拥有内存存储（这让 Redis 速度非常快）、远程（这使得可以与多个客户端和服务器进行连接）、持久化（这使得服务器重启之后任然可以保持重启之前的数据） 和可扩展性（主从复制和分片）等多个特性。">
 
 
 
@@ -137,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.shijinrong.cn/a/17062510/"/>
+  <link rel="canonical" href="http://blog.shijinrong.cn/a/17062301/"/>
 
 
 
 
 
-  <title>我在微博专题系列 | 石小一</title>
+  <title>Redis-Basics | 石小一</title>
   
 
 
@@ -306,7 +304,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.shijinrong.cn/a/17062510/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shijinrong.cn/a/17062301/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aierui">
@@ -323,7 +321,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">我在微博专题系列</h2>
+          <h2 class="post-title" itemprop="name headline">Redis-Basics</h2>
         
 
         <div class="post-meta">
@@ -335,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-25T10:16:20+08:00">
-                2017-06-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-23T00:05:34+08:00">
+                2017-06-23
               </time>
             
 
@@ -358,8 +356,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工作/" itemprop="url" rel="index">
-                    <span itemprop="name">工作</span>
+                  <a href="/categories/开发者手册/" itemprop="url" rel="index">
+                    <span itemprop="name">开发者手册</span>
                   </a>
                 </span>
 
@@ -397,40 +395,563 @@
       
 
       
-        <blockquote class="blockquote-center"><p>随时随地发现新鲜事!微博带你欣赏世界上每一个精彩瞬间,了解每一个幕后故事。分享你想表达的,让全世界都能听到你的心声! </p>
+        <blockquote class="blockquote-center"><p>当你需要以接近实时的速度访问快㞘变动的数据流时，Redis 这个的键值数据库就是你的最佳选择。Redis 是一个可以用来解决问题的工具，它既其他数据库不具备的数据结构，又拥有内存存储（这让 Redis 速度非常快）、远程（这使得可以与多个客户端和服务器进行连接）、持久化（这使得服务器重启之后任然可以保持重启之前的数据） 和可扩展性（主从复制和分片）等多个特性。</p>
 </blockquote>
-<p><img src="https://static.shijinrong.cn/blog/sina_weibo_floor.jpeg" alt="居然只有这一张😷"></p>
 <a id="more"></a>
-<p>我在微博专题系列</p>
-<div class="note success"><p>微博是我第一份实习工作，也是我喜欢做的一份工作。在微博时间里，学习了很多，也看到自己还有很多不懂不会，在这里我将记录我学习的内容以及在工作中常见问题的解决方案，涉及内容包含不限于PHP性能、分布式系统、服务高可用高性能、系统安全、常用工具使用技巧等 </p>
-</div>
-<ul>
-<li><p><a href="http://blog.shijinrong.cn/a/17062406">PHP 应用性能提升</a></p>
-</li>
-<li><p><a href="http://blog.shijinrong.cn/a/17062409">PHP7 新特性</a></p>
-</li>
-<li><p><a href="http://blog.shijinrong.cn/a/17062408">提升数据库性能</a></p>
-</li>
-<li><p><a href="http://blog.shijinrong.cn/a/17062316">北漂之旅</a></p>
-</li>
-<li><p><a href="http://blog.shijinrong.cn/a/17062301">REDIS 基础</a></p>
-</li>
-</ul>
-<blockquote>
-<p>待更新，离职前全部更新完</p>
+<h3 id="Redis-数据结构"><a href="#Redis-数据结构" class="headerlink" title="Redis 数据结构"></a>Redis 数据结构</h3><table>
+<thead>
+<tr>
+<th>数据结构</th>
+<th>结构存储的值</th>
+<th>特点</th>
+<th>结构的读写能力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>string</td>
+<td>字符串、整数、浮点数</td>
+<td>字符串</td>
+<td>对整个字符串或者字符串的一部分执行操作，对证书和浮点数执行自增(increment)或者自减(decrement)操作</td>
+</tr>
+<tr>
+<td>list</td>
+<td>链表，链表上的每个节点都包含了一个字符串</td>
+<td>列表元素可以重复出现</td>
+<td>从链表的两端推入或者弹出元素；根据偏移量对链表进行修剪(trim)；读取单个或者多个元素；根据值查找或者移除元素</td>
+</tr>
+<tr>
+<td>set</td>
+<td>包含字符串的无序收集器(unordered collection),每个元素唯一</td>
+<td>元素不可以重复出现</td>
+<td>添加、获取、移除单个元素；检查一个元素是否存在于集合中；计算交集、差集、并集；从集合中随机获取元素</td>
+</tr>
+<tr>
+<td>hash</td>
+<td>包含键值对的无序散列列表</td>
+<td>键值对</td>
+<td>添加、或者、移除单个键值对、获取所有键值对</td>
+</tr>
+<tr>
+<td>zset</td>
+<td>字符串成员(member)与浮点数分值(score)之间的有序映射，元素的排列顺序由分值大小决定</td>
+<td>键值对</td>
+<td>添加、获取、删除单个元素；根据分值范围(range)或者成员来获取元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Redis-和其他数据库对比"><a href="#Redis-和其他数据库对比" class="headerlink" title="Redis 和其他数据库对比"></a>Redis 和其他数据库对比</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>数据存储类型</th>
+<th>查询类型</th>
+<th>附件功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Redis</td>
+<td>内存存储(in-memory) NOSQL</td>
+<td>string、list、set、hash、zset</td>
+<td>每种数据结构都有自己的专属命令、还有批量操作和不完全的事物支持</td>
+<td>发布(pub)与订阅(sub)、主从复制(master\slave replication)、持久化、脚本(存储过程、stored procedure)</td>
+</tr>
+<tr>
+<td>memcached</td>
+<td>只用内存存储的键值缓存</td>
+<td>键值之间的映射</td>
+<td>创建、读取、更新、删除以及其他几个命令</td>
+<td>为提升性能而设的多线程服务器</td>
+</tr>
+<tr>
+<td>MongoDB</td>
+<td>硬盘存储(on-disk) 非关系文档存储</td>
+<td>每个数据库可以包含多个表、每个表可以包含多个无 schema(schema-less) 的BSON文档</td>
+<td>创建、更新、删除、读取、条件查询等命令</td>
+<td>支持 map-reduce 操作、主从复制、分片、空间索引(spatial index)</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>关系数据库(relational database)</td>
+<td>多库、一库多表、一表多行、多表视图、支持空间扩展和第三方扩展</td>
+<td>select、update、insert、replace、delete、内置函数、存储过程</td>
+<td>支持ACID性质(InnoDB)、主从复制和主主复制(master/master replication)</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>关系型数据库</td>
+<td>多库、一库多表、一表多行、多表视图、支持空间扩展、第三方扩展和自定制类型</td>
+<td>select、update、insert、replace、delete、内置函数、自定义的存储过程</td>
+<td>支持ACID性质、主从复制、第三方支持的多主复制(multi-msater replication)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Redis-命令"><a href="#Redis-命令" class="headerlink" title="Redis 命令"></a>Redis 命令</h3><blockquote>
+<p>详细见 <a href="https://redis.io/commands" target="_blank" rel="external">英文官方文档</a> <a href="http://www.redis.cn/commands.html" target="_blank" rel="external">中文翻译文档</a></p>
 </blockquote>
-<ul>
-<li><p>Linux 命令行</p>
+<h4 id="字符串-string"><a href="#字符串-string" class="headerlink" title="字符串(string)"></a>字符串(string)</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>语法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SET</td>
+<td>set key-name ‘string’</td>
+<td>设置存储在给定键中的值</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>get key-name</td>
+<td>获取存储在给定键中的值</td>
+</tr>
+<tr>
+<td>DEL</td>
+<td>del key-name</td>
+<td>删除存储在给定键中的值</td>
+</tr>
+<tr>
+<td>INCR</td>
+<td>incr key-name 1</td>
+<td>将键存储的值加上1</td>
+</tr>
+<tr>
+<td>DECR</td>
+<td>decr key-name 1</td>
+<td>将键存储的值减上1</td>
+</tr>
+<tr>
+<td>INCRBY</td>
+<td>incrby key-name amount</td>
+<td>将键存储的值加整数 amount</td>
+</tr>
+<tr>
+<td>DECRBY</td>
+<td>decrby key-name amount</td>
+<td>将键存储的值减整数 amount</td>
+</tr>
+<tr>
+<td>INCRBYFLOAT</td>
+<td>incrbyfloat key-name amount</td>
+<td>将键存储的值加浮点数 amount Redis2.6以上可用</td>
+</tr>
+<tr>
+<td></td>
+<td>下面是处理子串和二进制</td>
+<td></td>
+</tr>
+<tr>
+<td>APPEND</td>
+<td>append key-name value</td>
+<td>将值 value 追加到给定键 key-name 当前存储的值的末尾</td>
+</tr>
+<tr>
+<td>GETRANGE</td>
+<td>getrange key-name start end</td>
+<td>获取一个由偏移量start至偏移量end范围内所有的字符组成的子串，包括start、end</td>
+</tr>
+<tr>
+<td>SETRANGE</td>
+<td>setrange key-name offset value</td>
+<td>将葱start偏移量开始的子串设置为给定值</td>
+</tr>
+<tr>
+<td>GETBIT</td>
+<td>getbit key-name offset</td>
+<td>将字节串看作是二进制位串(bit string)，并返回位串中偏移量为offset的二进制位的值</td>
+</tr>
+<tr>
+<td>SETBIT</td>
+<td>setbit key-name offset value</td>
+<td>将字串看作是二进制位串，并将位串中偏移量为offset的二进制位的值设置为value</td>
+</tr>
+<tr>
+<td>BITCOUNT</td>
+<td>bitcount key-name [start end]</td>
+<td>统计二进制位串里面值为1的二进制位的数量，如何给定了可选的start、end偏移量，那么支队该范围内进行统计</td>
+</tr>
+<tr>
+<td>BITOP</td>
+<td>bitop operation dest-key key-name</td>
+<td>对一个或者对个二进制位串执行包括并(and)、或(or)、异或(xor)、非(not)在内的仁义一种按位运算操作，并将计算得出结果保存在dest-key键里面</td>
+</tr>
+</tbody>
+</table>
+<h4 id="列表-list"><a href="#列表-list" class="headerlink" title="列表(list)"></a>列表(list)</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>语法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RPUSH</td>
+<td>rpush key-name value [value …]</td>
+<td>将一个值或者多个值推入列表的右端</td>
+</tr>
+<tr>
+<td>LPUSH</td>
+<td>lpush key-name value [value …]</td>
+<td>将一个值或者多个值推入列表的右端 </td>
+</tr>
+<tr>
+<td>RPOP</td>
+<td>rpop key-name</td>
+<td>移除并返回列表最右端的元素</td>
+</tr>
+<tr>
+<td>LPOP</td>
+<td>lpop key-name</td>
+<td>移除并返回列表最左端的元素</td>
+</tr>
+<tr>
+<td>LINDEX</td>
+<td>lindex key-name offset</td>
+<td>返回列表中偏移量为offset的元素</td>
+</tr>
+<tr>
+<td>LRANGE</td>
+<td>lange key-name start end</td>
+<td>返回列表从start、end范围内所有的元素（含start、end）</td>
+</tr>
+<tr>
+<td>LTRIM</td>
+<td>ltrim key-name start end</td>
+<td>对列表进行修剪</td>
+</tr>
+<tr>
+<td></td>
+<td>阻塞式的列表弹出命令以及在列表之间移动元素的命令</td>
+<td></td>
+</tr>
+<tr>
+<td>BLPOP</td>
+<td>blpop key-name [key-name …] timeout</td>
+<td>从第一个非空列表中弹出位于最左端的元素或者在 timeout 秒之内阻塞并等待可弹出的元素出现</td>
+</tr>
+<tr>
+<td>BRPOP</td>
+<td>brpop key-name [key-name …] timeout</td>
+<td>第一个非空列表中弹出位于最右端的元素或者在 timeout 秒之内阻塞并等待可弹出的元素出现</td>
+</tr>
+<tr>
+<td>RPOPLPUSH</td>
+<td>rpoplpush source-key dest-key</td>
+<td>从 source-key 列表元素中弹出位于最右端的元素，然后将这个元素推入 dest-key 列表的最左端，并向用户返回这个元素</td>
+</tr>
+<tr>
+<td>BRPOPLPUSH</td>
+<td>brpoplpush source-key dest-key timeout</td>
+<td>从 source-key 列表元素中弹出位于最右端的元素，然后将这个元素推入 dest-key 列表的最左端，并向用户返回这个元素；如果 source-key 为空，那么在 timeout 秒之内阻塞并等待可弹出的元素出现</td>
+</tr>
+</tbody>
+</table>
+<h4 id="集合-set"><a href="#集合-set" class="headerlink" title="集合(set)"></a>集合(set)</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>语法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SADD</td>
+<td>sadd key-name item [item …]</td>
+<td>将一个或多个元素添加到集合里面，并返回被添加元素当中原本并不存在于集合里面的元素数量</td>
+</tr>
+<tr>
+<td>SREM</td>
+<td>srem key-name item [item …]</td>
+<td>从集合里面移除一个或者多个元素，并返回被移除元素的数量</td>
+</tr>
+<tr>
+<td>SISMEMBER</td>
+<td>sismember key-name item</td>
+<td>检查元素 item 是否存在于集合 key-name 里</td>
+</tr>
+<tr>
+<td>SCARD</td>
+<td>scard key-name</td>
+<td>返回集合包含的元素数量</td>
+</tr>
+<tr>
+<td>SMEMBERS</td>
+<td>smemebers key-name</td>
+<td>返回集合包含的所有元素</td>
+</tr>
+<tr>
+<td>SRANDMEMBER</td>
+<td>srandmember key-name [count]</td>
+<td>从集合里面随机的返回一个或者多个元素，当 count &gt; 0 命令返回的随机元素不会重复；当 count &lt; 0 命令返回随机元素可能会重复</td>
+</tr>
+<tr>
+<td>SPOP</td>
+<td>spop key-name</td>
+<td>随机地移除集合中的一个元素，并返回被移除的元素</td>
+</tr>
+<tr>
+<td>SMOVE</td>
+<td>smove source-key dest-key item</td>
+<td>如果集合 source-key包含元素 item，那么从集合source-key里面移除的元素item，并将元素item添加到集合 dest-key ；如果 item 被成功移除，那么命令返回1，否则返回0</td>
+</tr>
+<tr>
+<td></td>
+<td>用于组合和处理多个集合的 Redis 命令</td>
+<td></td>
+</tr>
+<tr>
+<td>SDIFF</td>
+<td>sdiff key-name [key-name …]</td>
+<td>差集运算，返回存在第一个集合中，但不存在其他集合中的元素</td>
+</tr>
+<tr>
+<td>SDIFFSTORE</td>
+<td>sdiff dest-key key-name [key-name …]</td>
+<td>将那些存在第一个集合但并不存在其他集合中的元素存储到 dest-key 键里面</td>
+</tr>
+<tr>
+<td>SINTER</td>
+<td>sinter key-name [key-name …]</td>
+<td>交集运算，返回那些同时存在于所有集合中的元素</td>
+</tr>
+<tr>
+<td>SINTERSTORE</td>
+<td>sinterstore dest-key key-name [key-name …]</td>
+<td>将那些同时存在于所有集合的元素存储到 dest-key 键里面</td>
+</tr>
+<tr>
+<td>SUNION</td>
+<td>sunion key-name [key-name …]</td>
+<td>并集运算，返回那些至少存在一个集合中的元素</td>
+</tr>
+<tr>
+<td>SUNIONSTORE</td>
+<td>sunionstore dest-key key-name [key-name …]</td>
+<td>将那些至少存在于一个集合中的元素存储到 dest-key 键里面</td>
+</tr>
+</tbody>
+</table>
+<h4 id="散列-hash"><a href="#散列-hash" class="headerlink" title="散列(hash)"></a>散列(hash)</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>语法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HMGET</td>
+<td>hmget key-name key [key …]</td>
+<td>从散列获取一个或者多个键的值</td>
+</tr>
+<tr>
+<td>HMSET</td>
+<td>hmset key-name key value [key value …]</td>
+<td>为散列里面的一个或者多个键设置值</td>
+</tr>
+<tr>
+<td>HDEL</td>
+<td>hdel key-name key [key …]</td>
+<td>删除散列里面的一个或多个键值对，返回成功找到并删除的键值对数量</td>
+</tr>
+<tr>
+<td>HLEN</td>
+<td>hlen key-name</td>
+<td>返回散列包含的键值对数量</td>
+</tr>
+<tr>
+<td>HEXISTS</td>
+<td>hexists key-name key</td>
+<td>检查给定键是否存在于散列中</td>
+</tr>
+<tr>
+<td>HKEYS</td>
+<td>hkeys key-name</td>
+<td>获取散列包含的所有键</td>
+</tr>
+<tr>
+<td>HVALS</td>
+<td>hvals key-name</td>
+<td>获取散列包含的所有值</td>
+</tr>
+<tr>
+<td>HGETALL</td>
+<td>hgetall key-name</td>
+<td>获取散列包含的所有键值对</td>
+</tr>
+<tr>
+<td>HINCRBY</td>
+<td>hincrby key-name key increment</td>
+<td>将键 key 存储的值加上整数 increment</td>
+</tr>
+<tr>
+<td>HINCRBYFLOAT</td>
+<td>hincrbyfloat key-name key incrment</td>
+<td>将键 key 存储的值加上浮点数 increment</td>
+</tr>
+</tbody>
+</table>
+<h4 id="有序集合-zset"><a href="#有序集合-zset" class="headerlink" title="有序集合(zset)"></a>有序集合(zset)</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>语法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ZADD</td>
+<td>zadd key-name score member [score member …]</td>
+<td>将带有给定分值的成员添加到有序集合里面</td>
+</tr>
+<tr>
+<td>ZREM</td>
+<td>zrem key-name member [member …]</td>
+<td>从有序集合里面移除给定的成员、并返回被移除成员数量</td>
+</tr>
+<tr>
+<td>ZCARD</td>
+<td>zcard key-name</td>
+<td>返回有序集合包含的成员数量</td>
+</tr>
+<tr>
+<td>ZINCRBY</td>
+<td>zincrby key-name increment member</td>
+<td>将member成员的分值加上increment</td>
+</tr>
+<tr>
+<td>ZCOUNT</td>
+<td>zcount key-name min max</td>
+<td>返回分值介于min和max之间的成员数量</td>
+</tr>
+<tr>
+<td>ZRANK</td>
+<td>zrank key-name member</td>
+<td>返回成员member在有序集合中的排名</td>
+</tr>
+<tr>
+<td>ZSCORE</td>
+<td>zscore key-name member</td>
+<td>返回成员member的分值</td>
+</tr>
+<tr>
+<td>ZRANGE</td>
+<td>zrange key-name start stop [withscores]</td>
+<td>返回有序集合中排名介于 start、stop之间的成员，如果给定了可选的 withscores 选项，那么命令将成员的分值也一并返回。</td>
+</tr>
+<tr>
+<td></td>
+<td>高级</td>
+<td></td>
+</tr>
+<tr>
+<td>ZREVRANK</td>
+<td>zrevrank key-name member</td>
+<td>返回有序集合里成员的排名，成员按照分值从大到小排列</td>
+</tr>
+<tr>
+<td>ZREVRANGE</td>
+<td>zrevrange key-name start stop [withscores]</td>
+<td>返回有序集合给定范围内里成员的排名，成员按照分值从大到小排列</td>
+</tr>
+<tr>
+<td>ZRANGEBYSCORE</td>
+<td>zrangebyscore key min max [withscores] [limit offset count]</td>
+<td>返回有序集合介于 min max之间所有成员</td>
+</tr>
+<tr>
+<td>ZREVRANGEBYSCORE</td>
+<td>zrevrangebyscore key max min [withscores] [limit offset count]</td>
+<td>返回有序集合介于 min max之间所有成员，并按照分值从大到小排列</td>
+</tr>
+<tr>
+<td>ZREMRANGEBYRANK</td>
+<td>zremrangebyrand key-name start stop</td>
+<td>移除有序集合中排名介于start、stop之间的所有成员</td>
+</tr>
+<tr>
+<td>ZREMRANGEBYSCORE</td>
+<td>zremrangebyscore key-name min max</td>
+<td>移除有序集合中分值介于min max之间所有成员</td>
+</tr>
+<tr>
+<td>ZINTERSTORE</td>
+<td>zinterstore dest-key key-count key [key …]</td>
+<td>给定的有序集合执行类似于集合的交集运算</td>
+</tr>
+<tr>
+<td>ZUNIONSTORE</td>
+<td>zunionstore dest-key key-count key [key …]</td>
+<td>给定的有序集合执行类似于集合的并集运算</td>
+</tr>
+</tbody>
+</table>
+<h4 id="发布与订阅-pub-sub"><a href="#发布与订阅-pub-sub" class="headerlink" title="发布与订阅(pub/sub)"></a>发布与订阅(pub/sub)</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>语法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SUBSCRIBE</td>
+<td>subscribe channel [channel …]</td>
+<td>订阅给定的一个或多个频道</td>
+</tr>
+<tr>
+<td>UNSUBSCRIBE</td>
+<td>unsubscribe [channel [channel …] ]</td>
+<td>退订给定的一个或多个频道，如果执行时没有给定任何频道，那么退订所有频道</td>
+</tr>
+<tr>
+<td>PUBLISH</td>
+<td>publish channel message</td>
+<td>向给定频道发送消息</td>
+</tr>
+<tr>
+<td>PSUBSCRIBE</td>
+<td>psubscribe pattern [pattern …]</td>
+<td>订阅给定模式相匹配的所有频道</td>
+</tr>
+<tr>
+<td>PUNSUBSCRIBE</td>
+<td>punsubscribe [pattern [pattern …] ]</td>
+<td>退订给定的模式，如果执行时没有给定任何模式，那么退订所有模式</td>
+</tr>
+</tbody>
+</table>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>语法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SORT</td>
+<td>sort soucre-key [BY pattern] [limit offset count] [get pattern [get pattern …]] [asc/desc] [alpha] [store dest-key]</td>
+<td>根据给定的选项，对输入的列表、集合、有序集合进行排序，然后返回或者存储排序的结果</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Redis-数据安全和性能保障"><a href="#Redis-数据安全和性能保障" class="headerlink" title="Redis 数据安全和性能保障"></a>Redis 数据安全和性能保障</h3><h3 id="Redis-疑难杂症"><a href="#Redis-疑难杂症" class="headerlink" title="Redis 疑难杂症"></a>Redis 疑难杂症</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><p><a href="https://redis.io" target="_blank" rel="external">英文官方文档</a></p>
 </li>
-<li><p>分布式系统基础</p>
-</li>
-<li><p>幂等的重要性</p>
-</li>
-<li><p>分布式 ID 生成法</p>
-</li>
-<li><p>消息服务</p>
-</li>
-<li><p>数据库建表基本要点</p>
+<li><p><a href="http://www.redis.cn" target="_blank" rel="external">中文翻译文档</a></p>
 </li>
 </ul>
 
@@ -478,7 +999,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/我在微博/" rel="tag"># 我在微博</a>
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
+          
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
+          
+            <a href="/tags/NoSQL/" rel="tag"># NoSQL</a>
           
         </div>
       
@@ -491,8 +1016,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/a/17062409/" rel="next" title="PHP7 新特性">
-                <i class="fa fa-chevron-left"></i> PHP7 新特性
+              <a href="/a/17050501/" rel="next" title="微博会员实习总结（一期）">
+                <i class="fa fa-chevron-left"></i> 微博会员实习总结（一期）
               </a>
             
           </div>
@@ -501,8 +1026,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/a/17070716/" rel="prev" title="Zepto 源码分析">
-                Zepto 源码分析 <i class="fa fa-chevron-right"></i>
+              <a href="/a/17062316/" rel="prev" title="北漂之旅">
+                北漂之旅 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -510,162 +1035,6 @@
       
 
    
-      
-        <!doctype html>
-<html>
-<div class="clearfix"></div>
-<br>
-<div id="comments">
-<div class="post-header bg-">
-  <h1 class="h1 post-title">评论 </h1>
-</div>
-
-<article class="post-content">
-<p> Want to leave a comment? (you'll need a GitHub account).</p>
-<div class="submit-comment" style="text-align: center">
-	<button onclick="window.open('https://github.com/aierui/aierui.github.io/issues/1')" class="btn btn-primary">评论</button>
-</div>
-</article>
-</div>
-
-<style type="text/css">
-.timeline-comment-wrapper {
-    margin-top: 0;
-    position: relative;
-    padding-left: 60px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    border-top: 2px solid #fff;
-    border-bottom: 2px solid #fff;
-}
-.timeline-comment-avatar {
-    float: left;
-    margin-left: -60px;
-    border-radius: 3px;
-}
-.avatar-parent-child {
-    position: relative;
-}
-.timeline-comment-wrapper a {
-    color: #0366d6;
-    text-decoration: none;
-    background-color: transparent;
-}
-.timeline-comment-wrapper .avatar {
-    display: inline-block;
-    overflow: hidden;
-    line-height: 1;
-    vertical-align: middle;
-    border-radius: 3px;
-}
-.timeline-comment-wrapper .rounded-1 {
-    border-radius: 3px !important;
-}
-.timeline-comment.current-user {
-    border-color: #c0d3eb;
-}
-.timeline-comment {
-    position: relative;
-    background-color: #fff;
-    border: 1px solid #d1d5da;
-    border-radius: 3px;
-}
-.timeline-comment.current-user .timeline-comment-header {
-    background-color: #f1f8ff;
-    border-bottom-color: #c0d3eb;
-}
-.timeline-comment-header {
-    padding-right: 15px;
-    padding-left: 15px;
-    color: #586069;
-    background-color: #f6f8fa;
-    border-bottom: 1px solid #d1d5da;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-}
-.timeline-comment-header-text {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-.timeline-comment-header h3 {
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-.timeline-comment-header-text .post-meta {
-    margin-left: 6px;
-}
-.timeline-comment article p {
-    margin: 0px;
-}
-.text-normal {
-    font-weight: normal !important;
-}
-.f5 {
-    font-size: 14px !important;
-}
-.submit-comment .btn-primary {
-    color: #fff;
-    background-color: #28a745;
-    background-image: -webkit-linear-gradient(270deg, #34d058 0%, #28a745 90%);
-    background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
-}
-.submit-comment .btn {
-    position: relative;
-    display: inline-block;
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 20px;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-repeat: repeat-x;
-    background-position: -1px -1px;
-    background-size: 110% 110%;
-    border: 1px solid rgba(27,31,35,0.2);
-    border-radius: 0.25em;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-.btn {
-    padding: 0 10px;
-    border-width: 2px;
-    border-radius: 0;
-}
-</style>
-
-
-
-<script type="text/javascript">
-  function loadComments(data) {
-    for (var i=0; i<data.length; i++) {
-      var cuser = data[i].user.login;
-      var cuserlink = data[i].user.html_url;
-      var avatarlink = data[i].user.avatar_url;
-      var clink = data[i].html_url;
-      var cbody = data[i].body_html;
-      var cavatarlink = data[i].user.avatar_url;      
-      var cdate = new Date(data[i].created_at);
-      var dopts = { month: 'short', day: 'numeric', year: 'numeric' }
-
-      $("#comments").append('<div class="timeline-comment-wrapper"><div class="avatar-parent-child timeline-comment-avatar"><a href="' + cuserlink +'"><img width="44"height="44"class="avatar rounded-1"src="' + avatarlink + '"></a></div><div class="timeline-comment current-user"><div class="timeline-comment-header"><h3 class="timeline-comment-header-text text-normal f5"><strong>' + cuser + '</strong><span class="post-meta">' + cdate.toLocaleDateString("en", dopts) + '</span></h3></div><div style="display: block !important; padding: 15px;"><article class="post-content">' + cbody + '</article></div></div></div>');
-    }
-  }
-
-  $.ajax("https://api.github.com/repos/aierui/aierui.github.io/issues/1/comments", {
-    headers: {Accept: "application/vnd.github.v3.html+json"},
-    dataType: "json",
-    success: function(msg){
-      loadComments(msg);
-   }
-  });
-</script>
-</html>
       
 
       
@@ -705,8 +1074,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpeg"
@@ -797,6 +1175,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-数据结构"><span class="nav-number">1.</span> <span class="nav-text">Redis 数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-和其他数据库对比"><span class="nav-number">2.</span> <span class="nav-text">Redis 和其他数据库对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-命令"><span class="nav-number">3.</span> <span class="nav-text">Redis 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串-string"><span class="nav-number">3.1.</span> <span class="nav-text">字符串(string)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表-list"><span class="nav-number">3.2.</span> <span class="nav-text">列表(list)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集合-set"><span class="nav-number">3.3.</span> <span class="nav-text">集合(set)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#散列-hash"><span class="nav-number">3.4.</span> <span class="nav-text">散列(hash)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有序集合-zset"><span class="nav-number">3.5.</span> <span class="nav-text">有序集合(zset)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发布与订阅-pub-sub"><span class="nav-number">3.6.</span> <span class="nav-text">发布与订阅(pub/sub)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他"><span class="nav-number">3.7.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-数据安全和性能保障"><span class="nav-number">4.</span> <span class="nav-text">Redis 数据安全和性能保障</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-疑难杂症"><span class="nav-number">5.</span> <span class="nav-text">Redis 疑难杂症</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
