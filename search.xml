@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[How to be more productive]]></title>
+    <url>%2Fa%2F17071419%2F</url>
+    <content type="text"><![CDATA[如何提升自己的技能呢？ 1234function yes_i_can_do()&#123;// do what ?&#125; 看了快20年的电视剧和电影，往往我都在想，镜头的一下秒会发生什么，导演为何要如此安排，如果换一种表达方式效果会不会好点。是的，这也是成为了我们经常吐槽的地方，可归纳如下几个原因：本身条件限制、外界条件限制……换言之，我们应该如何高效提高自己的专业技能，提高做事的效率，简化复杂的问题，这些需要我们专业技能过足，有夯实的经验积累。 How to be more productive 选择一个好问题 学会归纳总结问题 列个清单、掌握大局 思考清楚、画出流程 化整为零、各个击破 放松自己、缓解压力 参考链接 Aaron Swartz · How to be more productive]]></content>
+      <categories>
+        <category>观点和感想</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Linux 命令行]]></title>
     <url>%2Fa%2F17071078%2F</url>
     <content type="text"><![CDATA[代码就像是一首诗，被人们传颂，Linux也不例外。 Linux 是一个很有意思很神奇，进入 Linux 完全是一个新世界 👏👏，有着无法言喻的管道符 | ，又有着高强度的计算能力。它是一个伟大的艺术品 ，这得感谢 Linus Benedict Torvalds 及 Geek。 基础命令系统相关 top free shutdown &amp; reboot &amp; halt &amp; sync clear ifconfig ping &amp; netstat groups history hostname who sudo 账户管理 groups &amp; groupadd &amp; groupdel &amp; gpasswd useradd &amp; passwd &amp; 文件操作 cd &amp; mkdir ls &amp; ll cat &amp; zcat unzip &amp; zip tar grep tail &amp; head find locate which &amp; whereis cp mv rm ln ps kill &amp; pkill &amp; killall sort uniq split comm awk 权限操作 chmod chown 包管理器 yum 编辑器 vim vi 下载上传 sz rz rsync 磁盘相关 df du shell脚本 重定向符号 &gt; &gt;&gt; 2&gt; echo]]></content>
