@@ -104,10 +104,15 @@
 <meta property="og:url" content="http://blog.shijinrong.cn/a/17070116/index.html">
 <meta property="og:site_name" content="石小一">
 <meta property="og:description" content="排序算法是将一系列的值按照顺序进行排列的方法。">
-<meta property="og:updated_time" content="2017-08-30T17:10:56.000Z">
+<meta property="og:image" content="https://static.shijinrong.cn/blog/img/bubblesort.png">
+<meta property="og:image" content="https://static.shijinrong.cn/blog/img/selectionsort.png">
+<meta property="og:image" content="https://static.shijinrong.cn/blog/img/insertsort.png">
+<meta property="og:image" content="https://static.shijinrong.cn/blog/img/mergesort.png">
+<meta property="og:updated_time" content="2017-09-07T06:44:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法">
 <meta name="twitter:description" content="排序算法是将一系列的值按照顺序进行排列的方法。">
+<meta name="twitter:image" content="https://static.shijinrong.cn/blog/img/bubblesort.png">
 
 
 
@@ -411,6 +416,7 @@
 <p>第三位的“4”与第四位的“5”进行比较，4小于5，数组不变。</p>
 <p>第四位的“5”与第五位的“1”进行比较，5大于1，互换位置，数组变成[2, 3, 4, 1, 5]。</p>
 <p>第一轮排序完成，可以看到最后一位的5，已经是正确的数了。然后，再对剩下的数[2, 3, 4, 1]重复这个过程，每一轮都会在本轮最后一位上出现正确的数。直至剩下最后一个位置，所有排序结束。</p>
+<p><img src="https://static.shijinrong.cn/blog/img/bubblesort.png" alt=""></p>
 <h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><p>先定义一个交换函数，作用是交换两个位置的值。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">swap</span>(<span class="params">myArray, p1, p2</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> temp = myArray[p1];</div><div class="line">  myArray[p1] = myArray[p2];</div><div class="line">  myArray[p2] = temp;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>然后定义主函数。</p>
@@ -426,6 +432,7 @@
 <p>最小值“2”与第五位的“1”进行比较，1小于2，所以新的最小值是第五位的“1”。</p>
 <p>第五位的“1”与第一位的“3”互换位置，数组变为[1, 2, 4, 5, 3]。</p>
 <p>这一轮比较结束后，最小值“1”已经排到正确的位置了，然后对剩下的[2, 4, 5, 3]重复上面的过程。每一轮排序都会将该轮的最小值排到正确的位置，直至剩下最后一个位置，所有排序结束。</p>
+<p><img src="https://static.shijinrong.cn/blog/img/selectionsort.png" alt=""></p>
 <h3 id="算法实现-1"><a href="#算法实现-1" class="headerlink" title="算法实现"></a>算法实现</h3><p>先定义一个交换函数。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">swap</span>(<span class="params">myArray, p1, p2</span>)</span>&#123; </div><div class="line">	<span class="keyword">var</span> temp = myArray[p1]; </div><div class="line">	myArray[p1] = myArray[p2]; </div><div class="line">	myArray[p2] = temp; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>然后定义主函数。</p>
@@ -439,6 +446,7 @@
 <p>取出未排序部分的第一个元素“4”，与已排序部分最后一个元素“3”比较，因为4大于3，所以4排在3后面，整个数组变成[2, 3, 4]和[5, 1]两部分。</p>
 <p>取出未排序部分的第一个元素“5”，与已排序部分最后一个元素“4”比较，因为5大于4，所以5排在4后面，整个数组变成[2, 3, 4, 5]和[1]两部分。</p>
 <p>取出未排序部分的第一个元素“1”，与已排序部分最后一个元素“5”比较，因为1小于5，所以再与前一个元素“4”比较；因为1小于4，再与前一个元素“3”比较；因为1小于3，再与前一个元素“2”比较；因为小于1小于2，所以“1”排在2的前面，整个数组变成[1, 2, 3, 4, 5]。</p>
+<p><img src="https://static.shijinrong.cn/blog/img/insertsort.png" alt=""></p>
 <h3 id="算法实现-2"><a href="#算法实现-2" class="headerlink" title="算法实现"></a>算法实现</h3><p>算法的实现如下：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertionSort</span>(<span class="params">myArray</span>) </span>&#123;</div><div class="line"></div><div class="line"><span class="keyword">var</span> len     = myArray.length,     <span class="comment">// 数组的长度</span></div><div class="line">    value,                      <span class="comment">// 当前比较的值</span></div><div class="line">    i,                          <span class="comment">// 未排序部分的当前位置</span></div><div class="line">    j;                          <span class="comment">// 已排序部分的当前位置</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> (i=<span class="number">0</span>; i &lt; len; i++) &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 储存当前位置的值</span></div><div class="line">    value = myArray[i];</div><div class="line">    </div><div class="line">    <span class="comment">/*</span></div><div class="line">     * 当已排序部分的当前元素大于value，</div><div class="line">     * 就将当前元素向后移一位，再将前一位与value比较</div><div class="line">     */</div><div class="line">    <span class="keyword">for</span> (j=i<span class="number">-1</span>; j &gt; <span class="number">-1</span> &amp;&amp; myArray[j] &gt; value; j--) &#123;</div><div class="line">        myArray[j+<span class="number">1</span>] = myArray[j];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    myArray[j+<span class="number">1</span>] = value;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">return</span> myArray;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="合并排序"><a href="#合并排序" class="headerlink" title="合并排序"></a>合并排序</h2><blockquote>
@@ -452,6 +460,7 @@
 <p>将[2, 3]和[4]合并成[2, 3, 4]。</p>
 <p>将[5, 1]分成[5]和[1]两部分，然后合并成[1, 5]。</p>
 <p>将[2, 3, 4]和[1, 5]合并成[1, 2, 3, 4, 5]。</p>
+<p><img src="https://static.shijinrong.cn/blog/img/mergesort.png" alt=""></p>
 <h3 id="算法实现-3"><a href="#算法实现-3" class="headerlink" title="算法实现"></a>算法实现</h3><p>这里的关键是如何合并两个已经排序的数组。具体实现请看下面的函数。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span>(<span class="params">left, right</span>)</span>&#123; </div><div class="line">	<span class="keyword">var</span> result = [], il = <span class="number">0</span>, ir = <span class="number">0</span>;</div><div class="line"></div><div class="line">	<span class="keyword">while</span> (il &lt; left.length &amp;&amp; ir &lt; right.length)&#123;</div><div class="line">	    <span class="keyword">if</span> (left[il] &lt; right[ir])&#123;</div><div class="line">	        result.push(left[il++]);</div><div class="line">	    &#125; <span class="keyword">else</span> &#123;</div><div class="line">	        result.push(right[ir++]);</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> result.concat(left.slice(il)).concat(right.slice(ir));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>上面的merge函数，合并两个已经按升序排好序的数组。首先，比较两个数组的第一个元素，将其中较小的一个放入result数组；然后，将其中较大的一个与另一个数组的第二个元素进行比较，再将其中较小的一个放入result数组的第二个位置。以此类推，直到一个数组的所有元素都进入result数组为止，再将另一个数组剩下的元素接着result数组后面返回（使用concat方法）。</p>

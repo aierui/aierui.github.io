@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://static.shijinrong.cn/blog/mysql_query_cache.png">
 <meta property="og:image" content="https://static.shijinrong.cn/blog/E0252133-6E53-4E74-B80B-69CB0070C971.png">
 <meta property="og:image" content="https://static.shijinrong.cn/blog/tx_isolation.png">
-<meta property="og:updated_time" content="2017-09-05T07:36:13.000Z">
+<meta property="og:updated_time" content="2017-09-05T07:54:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="提升数据库性能">
 <meta name="twitter:description" content="数据库在动态网站扮演者关键角色，所有的流入流出的数据都会和数据库进行交互。">
@@ -509,6 +509,7 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">原子性（Atomicity）：原子性是指事务包含的所有操作要么全部成功，要么全部失败回滚，如果成功就必须要完全应用到数据库，如果操作失败则不能对数据库有任何影响。</div><div class="line"></div><div class="line">一致性（Consistency）：指事务必须使数据库从一个一致性状态变换到另一个一致性状态，也就是说一个事务执行之前和执行之后都必须处于一致性状态。</div><div class="line"></div><div class="line">隔离性（Isolation）：是当多个用户并发访问数据库时，比如操作同一张表时，数据库为每一个用户开启的事务，不能被其他事务的操作所干扰，多个并发事务之间要相互隔离。</div><div class="line"></div><div class="line">持久性（Durability）：是指一个事务一旦被提交了，那么对数据库中的数据的改变就是永久性的，即便是在数据库系统遇到故障的情况下也不会丢失提交事务的操作。</div></pre></td></tr></table></figure>
 <blockquote>
+<p>一个用户请求要么成功、要么失败，不能处于中间状态(Atomic)；一旦一个事务完成，将来所有事务都必须要基于这个完成后的状态(Consistent)；未完成的事务不会相互影响(Isolated)；一旦一个事务完成，就是持久的(Durable)。</p>
 <p>MySQL 数据库为我们提供的四种隔离级别：</p>
 </blockquote>
 <p>　　① Serializable (串行化)：可避免脏读、不可重复读、幻读的发生。</p>
