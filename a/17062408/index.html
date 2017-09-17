@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://static.shijinrong.cn/blog/mysql_query_cache.png">
 <meta property="og:image" content="https://static.shijinrong.cn/blog/E0252133-6E53-4E74-B80B-69CB0070C971.png">
 <meta property="og:image" content="https://static.shijinrong.cn/blog/tx_isolation.png">
-<meta property="og:updated_time" content="2017-09-05T07:54:46.000Z">
+<meta property="og:updated_time" content="2017-09-17T13:00:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="提升数据库性能">
 <meta name="twitter:description" content="数据库在动态网站扮演者关键角色，所有的流入流出的数据都会和数据库进行交互。">
@@ -488,18 +488,52 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">(a, b) </div><div class="line">select * from table_name where a = ? and b = ?;   ✅</div><div class="line">select * from table_name where a = ? ORDER BY b;(因为在联合索引中b已经经过排序)  ✅</div><div class="line"></div><div class="line">(a, b, c)</div><div class="line">select * from table_name where a = ? and b = ?;  ✅</div><div class="line">select * from table_name where a = ? and b = ? ORDER BY c;  ✅</div><div class="line">select * from table_name where a = ? and b in (?,?) and c = ?;  ✅</div><div class="line"></div><div class="line"></div><div class="line">下面这句SQL联合索引不能够直接得到结果，还需要执行一次排序</div><div class="line">select * from table_name where a = ? ORDER BY c;  ❌</div><div class="line"></div><div class="line">//联合索引越靠近左侧越优先匹配，其中的列不可以被跳过（如上一句SQL）。</div><div class="line"></div><div class="line">select * from table_name where a = ? and c = ? and b in (?,?)  ✅</div><div class="line">select * from table_name where a = ? and b in (?,?) ORDER BY c;  ❌ (按照 c 做一个排序 尽管索引中含c，但b会存在多种情况，最终不会起作用，所以查询还会做一个排序)</div></pre></td></tr></table></figure>
 <h4 id="锁和事务"><a href="#锁和事务" class="headerlink" title="锁和事务"></a>锁和事务</h4><h5 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h5><blockquote>
 <p>InnoDB 存储引擎会在行级别上对表数据上锁，数据库中可以在多个地方使用，可以不同资源提供并发访问。虽然锁定机制可以实现事务的隔离要求，使得事务可以并发工作，但是会锁会带来三个问题，分别是：脏读、不可重复读、丢失更新；</p>
+<p>锁的安全策略越高其内存开销就越大，性能就越低。所以说，在实际业务中我们需要在高性能和数据安全性之间寻求平衡。</p>
 </blockquote>
-<p><strong> 脏读 </strong></p>
+<p><strong>表锁和行级锁</strong></p>
+<p>表锁是 MySQL 中最基本的锁策略，并且是开销最小的策略。一个用户在对表进行写操作（插入、修改、删除）前，需要先获取写锁，这回阻塞其他用户对该表的所有写锁操作。只有没有写锁时，其他读取的用户才能获得读锁，读锁之间时不相互阻塞的。</p>
+<p>表锁有两种模式：读锁、写锁。</p>
+<p>行级锁 可以最大程度地支持并发处理，同时也会带来最大锁开销。</p>
+<p>表锁： 开销小，加锁快；不会出现死锁；锁定力度大，发生锁冲突概率高，并发度最低<br>行锁： 开销大，加锁慢；会出现死锁；锁定粒度小，发生锁冲突的概率低，并发度高<br>页锁： 开销和加锁速度介于表锁和行锁之间；会出现死锁；锁定粒度介于表锁和行锁之间，并发度一般</p>
+<p><strong>读写锁</strong></p>
+<blockquote>
+<p>读写锁也被称为共享锁(shared lock | S锁)和排他锁(exclusive lock | X锁)<br>MyISAM在执行查询语句（SELECT）前，会自动给涉及的所有表加读锁，在执行更新操作（UPDATE、DELETE、INSERT等）前，会自动给涉及的表加写锁，这个过程并不需要用户干预，因此，用户一般不需要直接用LOCK TABLE命令给MyISAM表显式加锁。</p>
+</blockquote>
+<p>读锁：是共享的，或者说相互不阻塞。多个客户在同一时间可以同时读取同一个资源，而不相互干扰。</p>
+<p>写锁：是排他的，也就是说一个写锁会阻塞其他的写锁和读锁。</p>
+<p><strong>乐观锁和悲观锁</strong></p>
+<p>乐观锁（Optimistic Lock）</p>
+<p>乐观锁的特点先进行业务操作，不到万不得已不去拿锁。即“乐观”的认为拿锁多半是会成功的，因此在进行完业务操作需要实际更新数据的最后一步再去拿一下锁就好。<br>乐观锁在数据库上的实现完全是逻辑的，不需要数据库提供特殊的支持。一般的做法是在需要锁的数据上增加一个版本号，或者时间戳，然后按照如下方式实现：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> ctime, <span class="keyword">version</span> <span class="keyword">as</span> old_version <span class="keyword">from</span> version_tablename;</div><div class="line"></div><div class="line"><span class="keyword">update</span> <span class="keyword">set</span> <span class="keyword">data</span> = ?, <span class="keyword">version</span> = new_version <span class="keyword">where</span> <span class="keyword">version</span> = old_version;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>数据库内部update同一行的时候是不允许并发的，即数据库每次执行一条update语句时会获取被update行的写锁，直到这一行被成功更新后才释放</p>
+</blockquote>
+<p>悲观锁（Pessimistic Lock）</p>
+<p>正如其名，具有强烈的独占和排他特性。它指的是对数据被外界（包括本系统当前的其他事务，以及来自外部系统的事务处理）修改持保守态度，因此，在整个数据处理过程中，将数据处于锁定状态。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">account</span> <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">"Erica"</span> <span class="keyword">for</span> <span class="keyword">update</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果在mysql中用悲观锁务必要确定走了索引，否则全表扫描。所有扫描过的行都会被锁上。</p>
+</blockquote>
+<p><strong>死锁</strong></p>
+<blockquote>
+<p>死锁就是两个或者多个事务在同一个资源上相互占用，并请求锁定对方占用的资源，从而导致恶性循环的现象。特别容易在批量处理中发生死锁。</p>
+</blockquote>
+<p>事务1<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">start</span> <span class="keyword">transaction</span></div><div class="line"><span class="keyword">update</span> tablename <span class="keyword">set</span> price = <span class="number">30</span> <span class="keyword">where</span> orderid = <span class="number">100012345</span>;</div><div class="line"><span class="keyword">update</span> tablename <span class="keyword">set</span> price = <span class="number">28</span> <span class="keyword">where</span> orderid = <span class="number">100012346</span>;</div><div class="line"><span class="keyword">commit</span>;</div></pre></td></tr></table></figure></p>
+<p>事务2<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">start</span> <span class="keyword">transaction</span></div><div class="line"><span class="keyword">update</span> tablename <span class="keyword">set</span> price = <span class="number">45</span> <span class="keyword">where</span> orderid = <span class="number">100012346</span>;</div><div class="line"><span class="keyword">update</span> tablename <span class="keyword">set</span> price = <span class="number">88</span> <span class="keyword">where</span> orderid = <span class="number">100012345</span>;</div><div class="line"><span class="keyword">commit</span>;</div></pre></td></tr></table></figure></p>
+<p>如果凑巧，两个事务同时执行了第一条 update 语句，接下来第二条数据发现已经被锁定。两个事务都等待对方释放锁，同时双方有对方需要的锁，则陷入死循环。除非有外部介入。</p>
+<p><strong>脏读</strong></p>
 <p>脏读是指在一个事务处理过程里读取了另一个未提交的事务中的数据。</p>
 <p>当一个事务正在多次修改某个数据，而在这个事务中这多次的修改都还未提交，这时一个并发的事务来访问该数据，就会造成两个事务得到的数据不一致。例如：用户A向用户B转账100元，对应SQL命令如下</p>
 <p>update account set money=money + 100 where name= B ;  (此时A通知B)</p>
 <p>update account set money=money - 100 where name= A ;<br>　　<br>当只执行第一条SQL时，A通知B查看账户，B发现确实钱已到账（此时即发生了脏读），而之后无论第二条SQL是否执行，只要该事务不提交，则所有操作都将回滚，那么当B以后再次查看账户时就会发现钱其实并没有转。</p>
-<p><strong> 不可重复读 </strong></p>
+<p><strong>不可重复读</strong></p>
 <p>不可重复读是指在对于数据库中的某个数据，一个事务范围内多次查询却返回了不同的数据值，这是由于在查询间隔，被另一个事务修改并提交了。</p>
 <p>例如事务T1在读取某一数据，而事务T2立马修改了这个数据并且提交事务给数据库，事务T1再次读取该数据就得到了不同的结果，发送了不可重复读。</p>
 <p>不可重复读和脏读的区别是，脏读是读到未提交的数据，而不可重复读则是读取了前一事务提交的数据。</p>
 <p>在某些情况下，不可重复读并不是问题，比如我们多次查询某个数据当然以最后查询得到的结果为主。但在另一些情况下就有可能发生问题，例如对于同一个数据A和B依次查询就可能不同，A和B就可能打起来了</p>
-<p><strong> 丢失更新 </strong></p>
+<p><strong>幻读</strong></p>
+<p>幻读问题是指一个事务的两次不同时间的相同查询返回了不同的的结果集。例如:一个 select 语句执行了两次，但是在第二次返回了第一次没有返回的行，这就是通常说的幻读。（第一次查询中，向数据表中插入了新的数据，导致第二次select的数据不一致）</p>
+<p><strong>丢失更新</strong></p>
 <p>是另一个锁导致的问题，简单来说其就是一个事务的更新操作会被另一个事务的更新操作所覆盖，从而导致数据的不一致 </p>
 <blockquote>
 <p>使用过程中，还会发生其他一些问题 如 阻塞、死锁</p>
@@ -513,13 +547,23 @@
 <p>MySQL 数据库为我们提供的四种隔离级别：</p>
 </blockquote>
 <p>　　① Serializable (串行化)：可避免脏读、不可重复读、幻读的发生。</p>
-<p>　　② Repeatable read (可重复读)：可避免脏读、不可重复读的发生。</p>
+<p>　　② Repeatable read (可重复读)：可避免脏读、不可重复读的发生，但可能会发生幻读。</p>
 <p>　　③ Read committed (读已提交)：可避免脏读的发生。</p>
 <p>　　④ Read uncommitted (读未提交)：最低级别，任何情况都无法保证。</p>
 <p>以上四种隔离级别最高的是Serializable级别，最低的是Read uncommitted级别，当然级别越高，执行效率就越低。像Serializable这样的级别，就是以锁表的方式(类似于Java多线程中的锁)使得其他的线程只能在锁外等待，所以平时选用何种隔离级别应该根据实际情况。在MySQL数据库中默认的隔离级别为Repeatable read (可重复读)。</p>
+<blockquote>
 <p>在MySQL数据库中查看当前事务的隔离级别：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select @@tx_isolation;</div></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> @@tx_isolation;</div></pre></td></tr></table></figure>
 <p><img src="https://static.shijinrong.cn/blog/tx_isolation.png" alt="tx_isolation"></p>
+<blockquote>
+<p>查看先当前库的线程情况：</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">full</span> <span class="keyword">processlist</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>innodb的事务表INNODB_TRX看下里面是否有正在锁定的事务线程，看看ID是否在show full processlist里面的sleep线程中,如果是，就证明这个sleep的线程事务一直没有commit或者rollback而是卡住了，我们需要手动kill掉。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> information_schema.INNODB_TRX\G;</div></pre></td></tr></table></figure>
 <h4 id="性能调优"><a href="#性能调优" class="headerlink" title="性能调优"></a>性能调优</h4><blockquote>
 <p>性能调优不是一项简单的工作，但也不是复杂的难事。InnoDB 性能问题可以从如下方面着手</p>
 </blockquote>
