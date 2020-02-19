@@ -6,3 +6,4 @@ node_modules/
 public/
 .deploy*/
 !themes/next
+package-lock.json
