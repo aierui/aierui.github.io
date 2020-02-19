@@ -4,7 +4,7 @@ date: 2016-09-25 22:18:33
 art: a
 id: 16092522
 comments: false
-categories: 大学
+categories: 观点和感想
 tags: 
 -  生活
 ---

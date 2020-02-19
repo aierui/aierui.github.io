@@ -45,7 +45,7 @@ description: 摘要：我在这里写下长篇大论，只希望小白们能跟�
 
 ## 本地搭建hexo框架、配置主题
 
-![Hexo 静态博客搭建流程](http://7xpqdb.com1.z0.glb.clouddn.com/hexo.jpg)
+![Hexo 静态博客搭建流程](https://static.shijinrong.cn/hexo.jpg)
 
 #### 目录
 ##### I.Hexo简介
@@ -67,7 +67,7 @@ Hexo 是一个轻量的静态博客框架。通过Hexo可以快速生成一个�
 
 #### 初始化hexo
 请参考hexo[官方文档](https://hexo.io/zh-cn/docs/setup.html),init命令中的`<folder>`就是文件夹aierui.github.io。初始化后，aierui.github.io里面就已经有完整的Hexo框架了,这里可以在任意地方新建立一个文件夹并命名为aierui.github.io【不要问为什么】打开该文件，点击鼠标右键你会看到一个Git bash here点击跳出git的黑窗口，输入命令`$ npm install`，完成后，指定文件夹的目录如下：
-![hexo初始化的目录](http://7xpqdb.com1.z0.glb.clouddn.com/%E5%88%9D%E5%A7%8B%E5%8C%96hexo.jpg)
+![hexo初始化的目录](https://static.shijinrong.cn/%E5%88%9D%E5%A7%8B%E5%8C%96hexo.jpg)
 
 ### III.Hexo配置方法
 
@@ -99,7 +99,7 @@ Hexo主题非常多，可以参考丰富多彩的[Hexo主题](https://hexo.io/th
 
 这个时候在浏览器中输入http://localhost:4000端口 静态的网站架设完成
 
-![效果如图](http://7xpqdb.com1.z0.glb.clouddn.com/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88hexo.jpg)
+![效果如图](https://static.shijinrong.cn/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88hexo.jpg)
 
 当你修改好你想要的样式，包括头像，favicon图标，标题样式，第三方平台链接等等等等你心中完美的页面。那就可以继续下一个阶段了。再提示一点，大家可以hexo主题修改一步就hexo s看下变化，初次接触对参数不清楚。只有hexo s后在可以在本地浏览到效果，Ctrl+C 停止服务器。
 
@@ -148,7 +148,7 @@ Hexo主题非常多，可以参考丰富多彩的[Hexo主题](https://hexo.io/th
 
 最后看到这样的界面，就成功设置ssh key了：
 
-![效果如图](http://7xpqdb.com1.z0.glb.clouddn.com/ssh%20key.jpg)
+![效果如图](https://static.shijinrong.cn/ssh%20key.jpg)
 
 #### 添加 SSH Key 到 GitHub
 
@@ -193,7 +193,7 @@ Git 会根据用户的名字和邮箱来记录提交。GitHub 也是用这些信
 
 #### 创建仓库和本地远程到GitHub仓库
 
-首先在GitHub上创建一个仓库repository，注意仓库名称必须为aierui.github.io，也是你之前在本地建立的文件夹名称 ![效果如图](http://7xpqdb.com1.z0.glb.clouddn.com/astoneprepository.jpg)，这里由于存在这个名称的仓库，无法重名。
+首先在GitHub上创建一个仓库repository，注意仓库名称必须为aierui.github.io，也是你之前在本地建立的文件夹名称 ![效果如图](https://static.shijinrong.cn/astoneprepository.jpg)，这里由于存在这个名称的仓库，无法重名。
 
 	# 将当前的改动暂存在本地仓库
 	$ git add .
@@ -245,7 +245,7 @@ Enjoy~
 #### DNS 设置
 
 领取到域名后进行解析，进入到我的域名管理，添加域名，如下图设置。我这里设置了一个三级域名blog，大家可以自行忽略。设置后访问的就是blog.shijinrong.cn了，不是shijinrong.cn哟~~~~
-![](http://7xpqdb.com1.z0.glb.clouddn.com/astonepyuming.jpg)
+![](https://static.shijinrong.cn/astonepyuming.jpg)
 
 其中A的两条记录指向的ip地址是github Pages的提供的ip
 
@@ -260,7 +260,7 @@ www 指定的记录是你在 github 注册的仓库。
 
 去到你的aierui.github.io 仓库，点击 CNAME(没有自行创建) ,再点击右下角的 铅笔 编辑，将 blog.shijinrong.cn 改成你的域名
 
-![](http://7xpqdb.com1.z0.glb.clouddn.com/astonepshijinrong.jpg)
+![](https://static.shijinrong.cn/astonepshijinrong.jpg)
 
 域名绑定成功，域名解析成功，因此你在浏览中输入aierui.github.io或者现在blog.shijinrong.cn均可以访问到主页。
 
@@ -272,7 +272,7 @@ www 指定的记录是你在 github 注册的仓库。
 ### 如何更新博文
 
 下载博客模板的ZIP，去到你frok的仓库地址：https://github.com/你的用户名/你的用户名.github.io。点击右下角的Download ZIP,你会得到一个名为「你的用户名.github.io-master.zip」的压缩包。
-![](http://7xpqdb.com1.z0.glb.clouddn.com/astonepxiazai.jpg)
+![](https://static.shijinrong.cn/astonepxiazai.jpg)
 
 ### 安装 github desktop管理你的博文
 
@@ -307,4 +307,4 @@ www 指定的记录是你在 github 注册的仓库。
 
 如果你还想了解更多的我和我交流，可以关注我的微信公众号「Astonep」。
 
-![微信公众号：Astonep](http://7xpqdb.com1.z0.glb.clouddn.com/astonepshijishendu.jpg)
+![微信公众号：Astonep](https://static.shijinrong.cn/astonepshijishendu.jpg)

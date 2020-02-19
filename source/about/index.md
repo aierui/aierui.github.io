@@ -1,5 +1,5 @@
 ---
-title: 石小一
+title: 石壹笑
 date: 2016-06-08 12:28:33
 comments: false
 ---
@@ -8,7 +8,7 @@ comments: false
 
 
 <div align = "center">
-	<p>** 我是石金融、也叫石小一 **</p>
+	<p>** 我是石金融、也叫石壹笑 **</p><p>I am a self­ taught programmer learning.</p>
 	<a href="https://resume.shijinrong.cn" target="_blank">Resume Of Me</a>
 </div>
 
@@ -32,4 +32,11 @@ comments: false
 
 </div>
 
-<div align = "center" style="font-size: 16px;font-weight: 400">喜欢我☝关注我</div>
+<div align = "center" style="font-size: 16px;font-weight: 400">
+	<p>喜欢我☝关注我 <a href="https://m.weibo.cn/p/1005055295718338" target="_blank">@石壹笑</a>
+	</p>
+	<p>🍔Learning from each other.</p>
+
+
+</div>
+

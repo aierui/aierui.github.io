@@ -1,10 +1,10 @@
 ---
 title: 两年
-date: 2016-07-31 18:18:33
+date: 2016-07-31 19:18:33
 art: a
-id: 16073118
+id: 16073119
 comments: false
-categories: 随笔
+categories: 观点和感想
 tags: 
 - 总结
 ---

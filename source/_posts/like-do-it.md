@@ -4,7 +4,7 @@ date: 2016-05-24 22:28:33
 art: a
 id: 16052422
 comments: false
-categories: 随笔
+categories: 观点和感想
 tags: 
 - 做自己喜欢的
 ---
